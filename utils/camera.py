@@ -11,15 +11,15 @@ class Camera:
         self.near = near
         self.far = far
         self.fov = fov
-        self.yaw = 0
+        self.xaw = 0
         self.phi = 0
         self.tangent = 1.0 / tan(self.fov * 0.5 / 180 * pi)
         self.direction = vector.Vector3()
         self.up = vector.Vector3()
         self.transform = Matrix.identity()
         self.target = position
-        self.speed = 10
-        self.rotationSpeed = 100
+        self.speed = 100
+        self.rotationSpeed = 10
         self.temp = vector.Vector3()
 
     def HandleInput(self, dt):
@@ -41,14 +41,10 @@ class Camera:
             self.position += self.temp
         if keys[pygame.K_s]: #zoom out
             self.position -= self.temp
-        if keys[pygame.K_a]:
-            self.yaw -= 0.04
-        if keys[pygame.K_d]:
-            self.yaw += 0.04
-
-    def HandleMouseEvent(self, x, y, deltaTime):
-        # not finished
-        self.yaw += x
+        if keys[pygame.K_q]:
+            self.xaw -= 0.04
+        if keys[pygame.K_e]:
+            self.xaw += 0.04
 
     def projection(self) -> Matrix:
         """Compute the projection Matrix corresponding to the current camera position

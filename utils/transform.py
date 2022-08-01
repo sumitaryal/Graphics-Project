@@ -2,11 +2,7 @@ from utils.vector import Normalize, crossProduct, dotProduct
 import utils.matrix as matrix
 import utils.vector as vector
 
-# PointAt(vector3 cameraPosition, Vector3 cameraTarget, Vector3 cameraUpVector)
 def PointAt(current, next, up) -> matrix.Matrix:
-    #f = (next - current).norm()
-    #u = (up - f * up.dot(f)).norm()
-    #r = u.cross(f)  # right vector
     f = vector.Normalize(next - current) # forward vector
     u = (up - f * vector.dotProduct(up, f)) # up vector
     r = crossProduct(u, f) # right vector

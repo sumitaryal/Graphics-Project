@@ -28,7 +28,6 @@ class Mesh:
         triangles = LoadMesh(fname, color)
         return cls(triangles, position)
 
-    # TODO: refactor this method, its way too long
     def update(
         self, screen, fill, wireframe, dt, camera, light, depth, clippingDebug, hue=0
     ):

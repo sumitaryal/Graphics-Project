@@ -65,7 +65,6 @@ def SignedDist(pos, normal, p):
     return (normal.x * pos.x + normal.y * pos.y + normal.z * pos.z - dotProduct(normal, p))
 
 def TriangleClipped(pos, normal, triangle, outTriangle, clippingDebug=False):
-    #normal = Normalize(normal)
 
     insidePoints, insideCount = [None for _ in range(3)], 0
     outsidePoints, outsideCount = [None for _ in range(3)], 0
